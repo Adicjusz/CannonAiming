@@ -30,12 +30,14 @@ public class Shooter : MonoBehaviour
     {
         lineRenderer.enabled = true;
         lineRenderer.positionCount = Mathf.CeilToInt(linepoints / timebetweenPoints) + 1;
+        
         Vector3 startPosition = ReleasePosition.position;
         Vector3 startVelocity = shootForce * transform.forward / bombPrefab.GetComponent<Rigidbody>().mass;
         int i = 0;
         lineRenderer.SetPosition(i, startPosition);
         for (float time = 0; time < linepoints; time += timebetweenPoints)
         {
+            Debug.Log(time);
             i++;
             Vector3 point = startPosition + time * startVelocity;
             point.y = startPosition.y + startVelocity.y * time + (Physics.gravity.y / 2f * time * time);
@@ -46,6 +48,6 @@ public class Shooter : MonoBehaviour
     {
         GameObject bomb =Instantiate(bombPrefab, transform.position, transform.rotation);
         Rigidbody rb = bomb.GetComponent<Rigidbody>();
-        rb.AddForce(transform.forward * shootForce);
+        rb.AddForce(transform.forward * shootForce,ForceMode.Impulse);
     }
 }
