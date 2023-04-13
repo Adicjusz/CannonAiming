@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4750203037756435801}
   - component: {fileID: 8260672493564090135}
   - component: {fileID: 9197774181690864178}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Round_shot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
